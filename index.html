@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Warrior</title>
+</head>
+<body style="margin: 0;">
+    <script>
+        // Get the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const port = urlParams.get('port') || '8001'; // Default port is 8001 if not specified
+        
+        // Build the iframe URL with the specified port
+        const iframeUrl = `http://localhost:${port}`;
+        
+        // Create the iframe element
+        const iframe = document.createElement('iframe');
+        iframe.src = iframeUrl;
+        iframe.style.border = 'none';
+        iframe.style.width = '100vw';
+        iframe.style.height = '100vh';
+        
+        // Append the iframe to the body
+        document.body.appendChild(iframe);
+    </script>
+</body>
+</html>
