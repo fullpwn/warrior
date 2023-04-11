@@ -2,13 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Warrior</title>
+    <title>Warrior | 8001</title>
 </head>
 <body style="margin: 0;">
     <script>
         // Get the URL query parameters
         const urlParams = new URLSearchParams(window.location.search);
         const port = urlParams.get('port') || '8001'; // Default port is 8001 if not specified
+        
+        // Set the title with the specified port
+        document.title = `Warrior | ${port}`;
         
         // Build the iframe URL with the specified port
         const iframeUrl = `http://localhost:${port}`;
