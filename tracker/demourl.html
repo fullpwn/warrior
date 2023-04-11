@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>#// Dashboard</title>
+  <link rel="shortcut icon" href="/favicon.ico?1429403202" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css" />
+  <link href="dash.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+
+
+</div>
+
+<div id="container">
+  <h1>#//</h1>
+  <p id="update-status"></p>
+  <div id="left"><p>Loading...</p></div>
+<div id="queuestats"></div>
+
+  <div class="log">
+    <table cellspacing="0">
+      <tbody id="log"></tbody>
+    </table>
+  </div>
+
+
+</div>
+
+<script type="text/javascript">
+window.trackerConfig = {
+  movingAverageInterval: 120,
+  numberOfLogLines: 18,
+  numberOfDownloaders: 18 - (1) - (3),
+  numberOfDownloadersInGraph: 18 - (1) - (3),
+  statsPath: 'demostats.json',
+  chartsPath: '/urls/charts.json',
+  updateStatusPath: null, // '/urls/update-status.json',
+  logChannel: 'urls-log',
+  logHost: 'tracker.archiveteam.org:8080',
+  sslLogHost: 'tracker.archiveteam.org:8081',
+  domains: {"data":"data"}
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/filesize/6.1.0/filesize.min.js" integrity="sha512-K1ufgo/KGDIg6PqZlayCH/DcV9LFooMvuXa0Y+b+Z/ganPkoUjWvDDrzo9dqxRdWA5utkoHwTNm3G3SJemIdDw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/natsort@latest/index.min.js"></script>
+<script src="https://tracker.archiveteam.org/js/socket.io.js?1429403202" type="text/javascript"></script>
+<script src="https://tracker.archiveteam.org/js/dashboard.js?1429403202" type="text/javascript"></script>
+
+</body>
+
+</html>
+
