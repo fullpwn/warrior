@@ -9,20 +9,40 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: Arial, sans-serif; /* Change the font family */
         }
         
-        #offlineMessage {
-            display: none;
+        #offlineMessage, #loadingMessage {
+            display: flex; /* Change to display: flex */
+            flex-direction: column; /* Add flex-direction to stack text vertically */
+            align-items: center;
+            justify-content: center;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 24px;
+            text-align: center; /* Center the text horizontally */
+        }
+        
+        #offlineMessage {
+            font-size: 36px; /* Increase the font size for the offline message */
+            display: none; /* Hide the offline message initially */
+        }
+        
+        #loadingMessage img {
+            width: 100px; /* Set the width of the image */
+            height: 100px; /* Set the height of the image */
+            margin-bottom: 16px; /* Add margin to the bottom of the image */
         }
     </style>
 </head>
 <body>
     <div id="offlineMessage">Warrior is offline.</div>
+    <div id="loadingMessage">
+        <img src="warrior-logo.png" alt="Warrior Logo"> <!-- Add the image element -->
+        Warrior is loading...
+    </div>
     <script>
         // Get the URL query parameters
         const urlParams = new URLSearchParams(window.location.search);
@@ -40,18 +60,33 @@
         iframe.style.border = 'none';
         iframe.style.width = '100vw';
         iframe.style.height = '100vh';
+        iframe.style.display = 'none'; // Hide the iframe initially
         
         // Append the iframe to the body
         document.body.appendChild(iframe);
         
-        // Add event listener for iframe load failure
+        // Add event listener for iframe load
+        iframe.addEventListener('load', () => {
+            // Hide the loading message
+            const loadingMessage = document.getElementById('loadingMessage');
+            loadingMessage.style.display = 'none';
+            
+            // Show the iframe
+            iframe.style.display = 'block';
+        });
+        
+        // Add event listener for iframe error
         iframe.addEventListener('error', () => {
+            // Hide the loading message
+            const loadingMessage = document.getElementById('loadingMessage');
+            loadingMessage.style.display = 'none';
+            
             // Hide the iframe
             iframe.style.display = 'none';
             
             // Show the offline message
             const offlineMessage = document.getElementById('offlineMessage');
-            offlineMessage.style.display = 'block';
+            offlineMessage.style.display = 'flex'; // Change to display: flex
         });
     </script>
 </body>
