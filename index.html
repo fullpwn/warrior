@@ -3,8 +3,26 @@
 <head>
     <meta charset="utf-8">
     <title>Warrior | 8001</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #offlineMessage {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+        }
+    </style>
 </head>
-<body style="margin: 0;">
+<body>
+    <div id="offlineMessage">Warrior is offline.</div>
     <script>
         // Get the URL query parameters
         const urlParams = new URLSearchParams(window.location.search);
@@ -25,6 +43,16 @@
         
         // Append the iframe to the body
         document.body.appendChild(iframe);
+        
+        // Add event listener for iframe load failure
+        iframe.addEventListener('error', () => {
+            // Hide the iframe
+            iframe.style.display = 'none';
+            
+            // Show the offline message
+            const offlineMessage = document.getElementById('offlineMessage');
+            offlineMessage.style.display = 'block';
+        });
     </script>
 </body>
 </html>
